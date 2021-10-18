@@ -8,7 +8,7 @@ app.use(express.json())
 
 
 const mong = require("mongoose")
-mong.connect('mongodb://localhost:27017/prueba')
+mong.connect('mongodb://localhost:27017/pruebaGit')
     .then(() => {
         console.log("Base Datos Conexión Exitosaa")
     })
