@@ -26,6 +26,16 @@ app.get('/', (req, res, next) => {
     //res.json({message: 'Hello World'})
 })
 
+
+// Web admin
+
+app.set("view engine", "ejs");
+app.set("views", __dirname + "/WebViews");
+
+app.get("/admin", (req, res) => {
+    res.render("index");
+});
+
 //Familia de rutas
 app.use(require('./routes/routes'))
 
