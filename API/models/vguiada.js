@@ -2,29 +2,44 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const vguiadaSchema = new Schema({
-    fecha:{
+    reservador: {
         type: String,
         require: true,
         unique: false,
         trim: true,
-        minlength: 8
     },
-    hora:{
+    Nguia: {
         type: String,
         require: true,
         unique: false,
         trim: true,
-        minlength: 0
     },
-    capacidad:{
+    fecha: {
+        type: String,
+        require: true,
+        unique: false,
+        trim: true,
+    },
+    hora: {
+        type: String,
+        require: true,
+        unique: false,
+        trim: true,
+    },
+    Npersonas: {
         type: Number,
-        require: false,
+        require: true,
         unique: false,
         trim: true,
-        minlength: 2
-    }
+    },
+    disponible: {
+        type: Boolean,
+        require: true,
+        unique: false,
+        trim: true,
+    },
 })
 
-const Vguiada = ("Vguiada", vguiadaSchema)
+const Vguiada = mongoose.model("Vguiada", vguiadaSchema)
 
 module.exports = Vguiada;
