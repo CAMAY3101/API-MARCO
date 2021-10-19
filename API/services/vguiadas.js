@@ -26,8 +26,21 @@ const getAllVis = async () => {
     return visitas;
 }
 
+const getHorarios = async (fecha) => {
+    const horarios = await VisitaModel.find({ fecha: fecha }).select("hora");
+    return horarios;
+};
+
+const getGuias = async (fecha, hora) => {
+    console.log(fecha + hora)
+    const nguias = await VisitaModel.find({ fecha: fecha, hora: hora }).select("Nguia");
+    return nguias;
+}
+
 module.exports = {
     addVisita,
     getVisita,
-    getAllVis
+    getAllVis,
+    getHorarios,
+    getGuias
 }
