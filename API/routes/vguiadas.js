@@ -6,6 +6,9 @@ const VguiadaController = require('../controllers/vguiadas');
 router.get('/getVguiada', VguiadaController.getVisita);
 router.get('/getAllvisitas', VguiadaController.getAllVis);
 
+router.get('/getGuias/:fecha/:hora', VguiadaController.getGuias);
+router.get('/:fecha', VguiadaController.getHorarios);
+
 
 // -----POST----
 router.post('/addVisita', VguiadaController.addVisita);

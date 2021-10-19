@@ -10,5 +10,14 @@ module.exports = {
             message: "User added", 
             newUser
         })
+    },
+    getUser: async(req,res, next) => {
+        const user = await UsersServices.getUser(req.params.correo);
+        console.log(user)
+        if (user) {
+            res.status(200).json({ user });
+        } else {
+            res.status(404).json({ "mesagge": "NotFound" });
+        }
     }
 }

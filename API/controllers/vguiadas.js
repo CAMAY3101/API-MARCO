@@ -1,3 +1,4 @@
+const { request } = require('express');
 const VguiaService = require('../services/vguiadas');
 
 module.exports = {
@@ -24,5 +25,25 @@ module.exports = {
     getAllVis: async (req, res, next) => {
         const visits = await VguiaService.getAllVis();
         res.status(200).json({ visits });
+    },
+    getHorarios: async (req, res, next) => {
+        const horarios = await VguiaService.getHorarios(req.params.fecha);
+        console.log(horarios)
+        if(horarios){
+            res.status(200).json({horarios});
+        }else{
+            res.status(404).json({ "mesagge": "NotFound" });
+        }
+    },
+    getGuias: async (req, res, next) => {
+        const fecha = req.params.fecha;
+        const hora = req.params.hora;
+        const guias = await VguiaService.getGuias(fecha, hora)
+        console.log(fecha + hora)
+        if (guias) {
+            res.status(200).json({ guias });
+        } else {
+            res.status(404).json({ "mesagge": "NotFound" });
+        }
     }
 };
