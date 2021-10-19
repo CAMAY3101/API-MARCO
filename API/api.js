@@ -27,15 +27,6 @@ app.get('/', (req, res, next) => {
 })
 
 
-// Web admin
-
-app.set("view engine", "ejs");
-app.set("views", __dirname + "/WebViews");
-
-app.get("/admin", (req, res) => {
-    res.render("index");
-});
-
 //Familia de rutas
 app.use(require('./routes/routes'))
 
@@ -43,5 +34,3 @@ app.use(require('./routes/routes'))
 app.listen(port, () => {
     console.log('Escuchando del puerto ' + port)
 });
-
-
