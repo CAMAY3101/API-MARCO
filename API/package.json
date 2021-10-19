@@ -8,6 +8,7 @@
   "author": "Aylin Camacho",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.23.0",
     "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
