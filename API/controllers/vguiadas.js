@@ -45,5 +45,20 @@ module.exports = {
         } else {
             res.status(404).json({ "mesagge": "NotFound" });
         }
-    }
+    },
+    updateVisit: async(req, res, next) => {
+        //fecha, Nguia, hora ,reservador, Npersonas
+        const reservador = req.params.reservador;
+        const Nguia = req.params.Nguia;
+        const fecha = req.params.fecha;
+        const hora = req.params.hora;
+        const Npersonas = req.params.Npersonas;
+
+        const updateVisit = await VguiaService.updateVisit(reservador, Nguia, fecha, hora, Npersonas)
+
+        res.status(201).json({
+            message: "Visita Updated",
+            updateVisit
+        });
+    }    
 };

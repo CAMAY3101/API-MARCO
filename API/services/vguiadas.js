@@ -37,10 +37,29 @@ const getGuias = async (fecha, hora) => {
     return nguias;
 }
 
+const updateVisit = async (reservador, Nguia, fecha, hora, Npersonas) => {
+    try {
+        const filter = {Nguia: Nguia, fecha: fecha, hora: hora}
+        const update = {reservador: reservador, Npersonas: Npersonas, disponible:false}
+        const vguiada = await VisitaModel.findOneAndUpdate(filter, update);
+        console.log(filter)
+        console.log(update)
+        await vguiada.save()
+
+        console.log(vguiada)
+
+        return vguiada;
+
+    } catch (err) {
+        return false
+    }
+}
+
 module.exports = {
     addVisita,
     getVisita,
     getAllVis,
     getHorarios,
-    getGuias
+    getGuias,
+    updateVisit
 }
