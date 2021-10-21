@@ -27,7 +27,8 @@ const exposicionSchema = new Schema({
         trim: true,
     },
     imagenes:{
-        type: [String],
+        type: Buffer,
+        contentType: String,
         require: true,
         unique: false,
         trim: true,

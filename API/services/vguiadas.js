@@ -26,10 +26,10 @@ const getAllVis = async () => {
     return visitas;
 }
 
-const getHorarios = async (fecha) => {
+/*const getHorarios = async (fecha) => {
     const horarios = await VisitaModel.find({ fecha: fecha }).select("hora");
     return horarios;
-};
+};*/
 
 const getGuias = async (fecha, hora) => {
     console.log(fecha + hora)
@@ -54,12 +54,17 @@ const updateVisit = async (reservador, Nguia, fecha, hora, Npersonas) => {
         return false
     }
 }
+const getVreservadas = async () => {
+    const Rguias = await VisitaModel.find({disponible: false});
+    return Rguias;
+}
 
 module.exports = {
     addVisita,
     getVisita,
     getAllVis,
-    getHorarios,
+    //getHorarios,
     getGuias,
-    updateVisit
+    updateVisit,
+    getVreservadas
 }

@@ -26,6 +26,7 @@ module.exports = {
         const visits = await VguiaService.getAllVis();
         res.status(200).json({ visits });
     },
+    /*
     getHorarios: async (req, res, next) => {
         const horarios = await VguiaService.getHorarios(req.params.fecha);
         console.log(horarios)
@@ -34,7 +35,7 @@ module.exports = {
         }else{
             res.status(404).json({ "mesagge": "NotFound" });
         }
-    },
+    },*/
     getGuias: async (req, res, next) => {
         const fecha = req.params.fecha;
         const hora = req.params.hora;
@@ -46,6 +47,14 @@ module.exports = {
             res.status(404).json({ "mesagge": "NotFound" });
         }
     },
+
+    getVreservadas: async (req, res, next) => {
+        const Rguias = await VguiaService.getVreservadas();
+        res.status(200).json({ Rguias });
+    },
+
+
+    
     updateVisit: async(req, res, next) => {
         //fecha, Nguia, hora ,reservador, Npersonas
         const reservador = req.params.reservador;

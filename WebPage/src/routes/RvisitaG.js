@@ -39,7 +39,7 @@ VisitaRouter.post('', async(req, res)=>{
         .then(function (response) {
             console.log(response);
         })
-    //res.redirect("/admin")
+    //res.redirect("/VisitaGuiada")
 });
 
 module.exports = VisitaRouter;

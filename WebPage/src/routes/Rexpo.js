@@ -14,13 +14,13 @@ ExpoRouter.post('', async (req, res) => {
     
     const { name, descripcion, fechaI, imagenes } = req.body
 
-    const arrImgs = imagenes.split(" ");
+    //const arrImgs = imagenes.split(" ");
 
     await axios.post('http://localhost:3010/expos/addExpo', {
         name : name,
         descripcion : descripcion,
         fechaI : fechaI,
-        imagenes: arrImgs
+        imagenes: imagenes
     })
         .then(function (response) {
             console.log(response);
