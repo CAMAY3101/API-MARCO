@@ -1,0 +1,27 @@
+.text-center {
+  text-align: center !important;
+}
+
+.mt-4 {
+  margin-top: 1.5rem !important;
+}
+
+small, .small {
+  font-size: 0.875em;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+.me-2 {
+  margin-right: .5rem !important;
+}
+
+.text-primary {
+    color: #EC0080;
+}
+
+.text-success{
+    color: #E5E0CF;
+}
