@@ -26,16 +26,16 @@ module.exports = {
         const visits = await VguiaService.getAllVis();
         res.status(200).json({ visits });
     },
-    /*
+
     getHorarios: async (req, res, next) => {
         const horarios = await VguiaService.getHorarios(req.params.fecha);
         console.log(horarios)
-        if(horarios){
-            res.status(200).json({horarios});
-        }else{
+        if (horarios) {
+            res.status(200).json({ horarios });
+        } else {
             res.status(404).json({ "mesagge": "NotFound" });
         }
-    },*/
+    },
     getGuias: async (req, res, next) => {
         const fecha = req.params.fecha;
         const hora = req.params.hora;
@@ -53,9 +53,22 @@ module.exports = {
         res.status(200).json({ Rguias });
     },
 
+    getVdisponibles: async (req, res, next) => {
+        const RNguias = await VguiaService.getVdisponibles();
+        res.status(200).json({ RNguias });
+    },
 
-    
-    updateVisit: async(req, res, next) => {
+    getNumDis: async (req, res, next) => {
+        const Ndis = await VguiaService.getNumDis();
+        res.status(200).json({ Ndis });
+    },
+
+    getNumRes: async (req, res, next) => {
+        const Nres = await VguiaService.getNumRes();
+        res.status(200).json({ Nres });
+    },
+
+    updateVisit: async (req, res, next) => {
         //fecha, Nguia, hora ,reservador, Npersonas
         const reservador = req.params.reservador;
         const Nguia = req.params.Nguia;
@@ -69,5 +82,5 @@ module.exports = {
             message: "Visita Updated",
             updateVisit
         });
-    }    
+    }
 };
